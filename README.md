@@ -1,54 +1,55 @@
-# Booklet Generator
+import requests
+import json
 
-This repository contains `generate_booklet.py`, a Python script that formats text content into a structured booklet format.
+# تكوين معلومات API
+NOTION_TOKEN = "your_integration_token_here"
+DATABASE_ID = "your_database_id_here"
 
-## Features
+# تكوين رأس الطلب
+headers = {
+    "Authorization": f"Bearer {NOTION_TOKEN}",
+    "Content-Type": "application/json",
+    "Notion-Version": "2022-06-28"  # تحقق من أحدث إصدار
+}
 
-- Automatic text wrapping to fit specified page widths
-- Pagination with configurable page height  
-- Title page generation with author information
-- Command-line interface with multiple options
-- Support for both file input and stdin input
-- Proper error handling for missing files and empty content
+# استعلام بسيط لجلب صفحات من قاعدة البيانات
+def get_pages_from_database():
+    url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
+    response = requests.post(url, headers=headers)
+    data = response.json()
+    return data
 
-## Usage
+# إضافة صفحة جديدة إلى قاعدة البيانات
+def add_page_to_database(title, description):
+    url = "https://api.notion.com/v1/pages"
+    
+    payload = {
+        "parent": {"database_id": DATABASE_ID},
+        "properties": {
+            "العنوان": {
+                "title": [
+                    {
+                        "text": {
+                            "content": title
+                        }
+                    }
+                ]
+            },
+            "الوصف": {
+                "rich_text": [
+                    {
+                        "text": {
+                            "content": description
+                        }
+                    }
+                ]
+            }
+        }
+    }
+    
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    return response.json()
 
-### Basic Usage
-
-```bash
-python generate_booklet.py input.txt
-```
-
-### With Title and Author
-
-```bash
-python generate_booklet.py input.txt -t "My Booklet" -a "John Doe"
-```
-
-### Custom Page Dimensions
-
-```bash
-python generate_booklet.py input.txt --width 60 --height 30
-```
-
-### Reading from Standard Input
-
-```bash
-echo "Hello World" | python generate_booklet.py
-```
-
-### All Available Options
-
-```bash
-python generate_booklet.py --help
-```
-
-## Example
-
-The repository includes `sample_content.txt` which demonstrates the booklet generator:
-
-```bash
-python generate_booklet.py sample_content.txt -t "Sample Booklet" -a "Demo Author" -o my_booklet.txt
-```
-
-This will create a formatted booklet with a title page and properly paginated content.
+# استدعاء الوظائف
+pages = get_pages_from_database()
+new_page = add_page_to_database("عنوان جديد", "وصف للصفحة الجديدة")
