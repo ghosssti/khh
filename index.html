@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KHH Library - Knowledge Hub & Haven</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>KHH Library</h1>
+                    <p>Knowledge Hub & Haven</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#seating">Seating</a></li>
+                    <li><a href="#study-rooms">Study Rooms</a></li>
+                    <li><a href="#resources">Digital Resources</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Your Library</h2>
+                <p>A quiet and welcoming space filled with knowledge and discovery</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <h3>📚 Vast Collection</h3>
+                        <p>Books, magazines, and digital resources</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🪑 Comfortable Spaces</h3>
+                        <p>Seating areas and study rooms</p>
+                    </div>
+                    <div class="feature">
+                        <h3>💻 Technology Access</h3>
+                        <p>Computers and free Wi-Fi</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎯 Community Hub</h3>
+                        <p>Learning, research, and events</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalog" class="section">
+            <h2>Library Catalog</h2>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search books, magazines, or digital resources...">
+                <button onclick="searchResources()">Search</button>
+            </div>
+            <div class="catalog-filters">
+                <button class="filter-btn active" onclick="filterResources('all')">All</button>
+                <button class="filter-btn" onclick="filterResources('books')">Books</button>
+                <button class="filter-btn" onclick="filterResources('magazines')">Magazines</button>
+                <button class="filter-btn" onclick="filterResources('digital')">Digital Resources</button>
+            </div>
+            <div id="catalog-results" class="catalog-grid">
+                <!-- Resources will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <section id="seating" class="section">
+            <h2>Comfortable Seating Areas</h2>
+            <div class="seating-grid">
+                <div class="seating-area">
+                    <h3>Quiet Reading Nook</h3>
+                    <p>Perfect for individual study and reading</p>
+                    <span class="availability available">Available</span>
+                </div>
+                <div class="seating-area">
+                    <h3>Collaborative Space</h3>
+                    <p>Open area for light discussion and group reading</p>
+                    <span class="availability available">Available</span>
+                </div>
+                <div class="seating-area">
+                    <h3>Window Seats</h3>
+                    <p>Natural light reading spots with garden views</p>
+                    <span class="availability occupied">Occupied</span>
+                </div>
+                <div class="seating-area">
+                    <h3>Comfortable Chairs</h3>
+                    <p>Ergonomic seating for extended reading sessions</p>
+                    <span class="availability available">Available</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="study-rooms" class="section">
+            <h2>Study Rooms</h2>
+            <p>Reserve private study rooms for group work and focused learning</p>
+            <div class="study-rooms-grid">
+                <div class="study-room">
+                    <h3>Room A</h3>
+                    <p>Capacity: 4 people</p>
+                    <p>Equipment: Whiteboard, projector</p>
+                    <button class="reserve-btn" onclick="reserveRoom('A')">Reserve</button>
+                </div>
+                <div class="study-room">
+                    <h3>Room B</h3>
+                    <p>Capacity: 6 people</p>
+                    <p>Equipment: Large table, power outlets</p>
+                    <button class="reserve-btn" onclick="reserveRoom('B')">Reserve</button>
+                </div>
+                <div class="study-room">
+                    <h3>Room C</h3>
+                    <p>Capacity: 8 people</p>
+                    <p>Equipment: Conference setup, TV screen</p>
+                    <button class="reserve-btn reserved">Reserved</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <h2>Digital Resources & Technology</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>Computer Access</h3>
+                    <p>10 desktop computers with internet access</p>
+                    <p>Microsoft Office, research databases, printing services</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Free Wi-Fi</h3>
+                    <p>High-speed internet throughout the library</p>
+                    <p>Network: KHH_Library | Password: knowledge2024</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Digital Collections</h3>
+                    <p>E-books, online journals, research databases</p>
+                    <p>Access with your library card</p>
+                </div>
+                <div class="resource-card">
+                    <h3>Multimedia Station</h3>
+                    <p>Audio/video editing software</p>
+                    <p>Scanner, microfilm reader</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <h2>Community Events</h2>
+            <div class="events-container">
+                <div class="event">
+                    <div class="event-date">
+                        <span class="month">DEC</span>
+                        <span class="day">15</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Author Reading Series</h3>
+                        <p>Local author Sarah Johnson discusses her latest novel</p>
+                        <p>Time: 6:00 PM - 7:30 PM</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="event-date">
+                        <span class="month">DEC</span>
+                        <span class="day">20</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Research Workshop</h3>
+                        <p>Advanced database searching techniques</p>
+                        <p>Time: 2:00 PM - 4:00 PM</p>
+                    </div>
+                </div>
+                <div class="event">
+                    <div class="event-date">
+                        <span class="month">JAN</span>
+                        <span class="day">05</span>
+                    </div>
+                    <div class="event-info">
+                        <h3>Book Club Meeting</h3>
+                        <p>Discussing "The Knowledge Seekers" by M. Chen</p>
+                        <p>Time: 3:00 PM - 4:30 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>123 Knowledge Street<br>Learning City, LC 12345</p>
+                <p>Phone: (555) 123-BOOK</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <p>Monday - Thursday: 9AM - 8PM<br>
+                   Friday - Saturday: 9AM - 6PM<br>
+                   Sunday: 12PM - 5PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Follow us for updates on new arrivals and events</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 KHH Library. Encouraging exploration and discovery of knowledge.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
