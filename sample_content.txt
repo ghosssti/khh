@@ -1,0 +1,44 @@
+Chapter 1: Introduction
+
+Welcome to this sample booklet! This is a demonstration of the booklet generator script that formats text content into a structured booklet format.
+
+The booklet generator can handle various types of content, including:
+- Multiple paragraphs of text
+- Automatic text wrapping
+- Page breaks
+- Title pages
+- Custom page dimensions
+
+Chapter 2: Features
+
+This booklet generator includes several useful features:
+
+1. Automatic text wrapping to fit specified page widths
+2. Pagination with configurable page height
+3. Title page generation with author information
+4. Command-line interface with multiple options
+5. Support for both file input and stdin input
+
+The script is designed to be simple yet functional, providing a solid foundation for booklet creation needs.
+
+Chapter 3: Usage Examples
+
+Here are some examples of how to use the generate_booklet.py script:
+
+Basic usage with a text file:
+python generate_booklet.py input.txt
+
+With custom title and author:
+python generate_booklet.py input.txt -t "My Booklet" -a "John Doe"
+
+Custom page dimensions:
+python generate_booklet.py input.txt --width 60 --height 30
+
+Reading from stdin:
+echo "Hello World" | python generate_booklet.py
+
+Chapter 4: Conclusion
+
+This booklet generator provides a straightforward way to format text content into a booklet structure. It can be easily extended to support additional features like table of contents, headers and footers, or even PDF output.
+
+The modular design makes it simple to customize the formatting and add new functionality as needed.
